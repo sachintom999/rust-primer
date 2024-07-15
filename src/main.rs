@@ -36,7 +36,9 @@ fn main() {
     println!("");
     println!("First word ::{}", first_word);
     let sum = add(10, 15);
-    println!("sum = {}", sum)
+    println!("sum = {}", sum);
+
+    update_string()
 }
 
 fn get_first_word(sentence: String) -> String {
@@ -52,4 +54,17 @@ fn get_first_word(sentence: String) -> String {
 
 fn add(a: i32, b: i32) -> i32 {
     return a + b;
+}
+
+fn update_string() {
+    let mut s = String::from("initial string");
+    for _ in 1..100 {
+        s.push_str("this is additional data");
+        println!(
+            "length:{} capacity:{} pointer:{:p}",
+            s.len(),
+            s.capacity(),
+            s.as_ptr()
+        )
+    }
 }
