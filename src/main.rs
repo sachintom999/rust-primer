@@ -68,3 +68,40 @@ fn update_string() {
         )
     }
 }
+
+
+
+/*
+
+
+Ownership :: scenario-1
+
+fn main() {
+    let greet = String::from("hello");
+    println!("{}", greet);
+    take_ownership(greet);
+    
+}
+
+fn take_ownership(temp: String) -> String {
+    println!("in take_ownership () {}", temp);
+    return temp;
+}
+
+
+
+Ownership :: scenario-2
+
+fn main() {
+    let mut greet = String::from("hello");
+    println!("{}", greet);
+    greet = take_ownership(greet);
+    println!("{}", greet);
+}
+
+fn take_ownership(temp: String) -> String {
+    println!("in take_ownership () {}", temp);
+    return temp;
+}
+
+*/
