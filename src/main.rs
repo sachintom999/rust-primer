@@ -1,37 +1,34 @@
-struct User {
-    active: bool,
-    username: String,
-    email: String,
-    sign_in_count: u64,
+struct Rect {
+    width: i32,
+    height: i32,
 }
 
-struct Point(i32, i32); // tuple struct
-struct Empty; // unit struct
+impl Rect {
+    fn area(&self) -> i32 {
+        self.width * self.height
+    }
+    fn perimeter(&self) -> i32 {
+        2 * (self.width + self.height)
+    }
+}
+
+struct NoShape {} // unit struct
+impl NoShape {
+    fn area(&self) -> i32 {
+        return 0;
+    }
+}
 
 fn main() {
-    let username = String::from("john");
-
-    let point = Point(1, 2);
-
-    let user1 = User {
-        active: true,
-        username,
-        email: String::from("john@gmail.com"),
-        sign_in_count: 12,
+    let rect = Rect {
+        width: 20,
+        height: 10,
     };
-    println!("User {} has email - {} ", user1.username, user1.email);
-    
-    println!("x = {}, y = {}", point.0, point.1);
+    let area = rect.area();
+    let perimeter = rect.perimeter();
+    println!("perimeter = {}", perimeter);
+    println!("area = {}", area);
+
+    let no_shape = NoShape{};
+    println!("noshape area = {}", no_shape.area());
 }
-
-/*
-
-Other types:
-- tuple struct : struct that have unnamed fields
-- unit structs : structs which donot have any attributes
-
-
-Storage - str attributes stored in heap, others in stack
-
-
-*/
