@@ -1,34 +1,29 @@
-struct Rect {
-    width: i32,
-    height: i32,
+enum Direction {
+    North,
+    South,
+    East,
+    West,
 }
 
-impl Rect {
-    fn area(&self) -> i32 {
-        self.width * self.height
-    }
-    fn perimeter(&self) -> i32 {
-        2 * (self.width + self.height)
-    }
-}
-
-struct NoShape {} // unit struct
-impl NoShape {
-    fn area(&self) -> i32 {
-        return 0;
-    }
+enum Shape {
+    Circle(f64),
+    Square(f64),
+    Rectangle(f64, f64),
 }
 
 fn main() {
-    let rect = Rect {
-        width: 20,
-        height: 10,
-    };
-    let area = rect.area();
-    let perimeter = rect.perimeter();
-    println!("perimeter = {}", perimeter);
+    let my_direction = Direction::North;
+    move_around(my_direction);
+    let cicle = Shape::Circle(5.0);
+    let area = calc_area(cicle);
     println!("area = {}", area);
+}
 
-    let no_shape = NoShape{};
-    println!("noshape area = {}", no_shape.area());
+fn move_around(direction: Direction) {
+
+    // some logic
+}
+
+fn calc_area(shape: Shape) -> f64 {
+    return 0.0;
 }
