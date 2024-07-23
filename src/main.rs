@@ -15,7 +15,8 @@ fn main() {
     let my_direction = Direction::North;
     move_around(my_direction);
     let cicle = Shape::Circle(5.0);
-    let area = calc_area(cicle);
+    let rect = Shape::Rectangle(31.0, 12.0);
+    let area = calc_area(rect);
     println!("area = {}", area);
 }
 
@@ -25,5 +26,10 @@ fn move_around(direction: Direction) {
 }
 
 fn calc_area(shape: Shape) -> f64 {
-    return 0.0;
+    let ans = match shape {
+        Shape::Circle(radius) => 3.14 * radius * radius,
+        Shape::Rectangle(height, width) => height * width,
+        Shape::Square(side) => side * side,
+    };
+    return ans;
 }
